@@ -39,7 +39,7 @@ const Linechart = () => {
   return (
     <div className='all'>
       <Navbar/>
-      <h1>Time Series Analysis</h1>
+      <h1>Data Visualization</h1>
       <div className='select'>
         <label htmlFor="year-select">Choose a Year:</label>
         <select className='opt' id="year-select" value={selectedYear} onChange={handleYearChange}>

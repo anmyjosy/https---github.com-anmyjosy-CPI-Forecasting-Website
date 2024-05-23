@@ -9,7 +9,7 @@ const Programs = () => {
     <div className='programs'>
       <div className="program">
         <img src={program_1} alt="" />
-        <h1>Time Series Analysis</h1>
+        <h1>Data Visualization</h1>
         <button><a href="time">GO &gt;</a></button>
         <p>Time series analysis involves examining sequences of data points collected at consistent intervals to identify trends, patterns, and changes over time.</p>
       </div>
