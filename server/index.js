@@ -7,7 +7,7 @@ const app =express()
 app.use(express.json())
 app.use(cors())
 
-mongoose.connect("mongodb://127.0.0.1:27017/employee")
+mongoose.connect("mongodb+srv://anmyjosy:Anmy2003!@cluster0.1ksxdqo.mongodb.net/employee")
 
 
 app.post("/login",(req,res)=>{
