@@ -21,7 +21,6 @@ const CPI = () => {
     'Recreation and amusement', 'Education', 'Personal care and effects', 
     'Miscellaneous', 'General index'
   ];
-
   const handleAttributeChange = (event) => {
     setSelectedAttribute(event.target.value);
   };

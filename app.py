@@ -5,17 +5,22 @@ import matplotlib.pyplot as plt
 import statsmodels.api as sm
 import pandas as pd
 from pandas.tseries.offsets import DateOffset
-import io
-import base64
 import plotly.graph_objects as go
 import plotly.io as pio
+import gdown
 
 
 app = Flask(__name__)
 CORS(app)
 
 # Load the DataFrame
-df = pd.read_csv("C:/Users/asus/Desktop/castfore/preprocessed_data.csv")
+url='https://drive.google.com/uc?id=1eu83KllS90UMZBDtnUjC7q1oQFQyDe8B'
+# Download the file
+output = 'preprocessed_data.csv'
+gdown.download(url, output, quiet=False)
+
+# Load the DataFrame
+df = pd.read_csv(output)
 df['Date']=pd.to_datetime(df['Date'])
 df.set_index('Date',inplace=True)
 future_dates=[df.index[-1]+DateOffset(months=x)for x in range(0,20)]
