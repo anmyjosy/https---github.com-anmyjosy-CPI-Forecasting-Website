@@ -12,7 +12,7 @@ import Aboutpage from './Pages/Aboutpage.jsx';
 import Graph from './Pages/Graph.jsx';
 import Linechart from './Pages/Linechart.jsx';
 import CPI from './Pages/CPI.jsx';
-import ProtectedRoute from 'C:/Users/asus/Desktop/castfore/ProtectdeRoute.jsx';
+import New from './Pages/New.jsx';
 
 
 const router = createBrowserRouter([
@@ -41,8 +41,12 @@ const router = createBrowserRouter([
     element:<Registerpage/>
   },
   {
-    path: "cpi",
-    element: <ProtectedRoute element={<CPI />} />,
+    path: "/cpi",
+    element: <CPI/>
+  },
+  {
+    path: "new",
+    element: <New/>
   }
 ]);
 

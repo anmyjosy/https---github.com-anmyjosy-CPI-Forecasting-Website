@@ -2,15 +2,13 @@ import React from 'react'
 import './Login.css'
 import { useState} from 'react'
 import axios from 'axios'
-import { useAuth } from 'C:/Users/asus/Desktop/castfore/AuthContext.jsx';
 import{useNavigate} from 'react-router-dom'
 
 
 function Login(){
-  const[email, setEmail]=useState()
-  const { isAuthenticated, setIsAuthenticated } = useAuth();
-  const[password, setPassword]=useState()
-  const navigate=useNavigate()
+  const[email, setEmail]=useState();
+  const[password, setPassword]=useState();
+  const navigate=useNavigate();
   const [showPassword, setShowPassword] = useState(false);
 
 
@@ -26,8 +24,7 @@ function Login(){
       alert("password is incorrect");
     }
     if(result.data==="success"){
-      setIsAuthenticated(true);
-      navigate('/cpi')
+      navigate('/cpi');
     }
   })
     .catch(err=>console.log(err))
