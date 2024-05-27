@@ -7,7 +7,6 @@ import { useNavigate } from 'react-router-dom';
 
 const CPI = () => {
   const navigate = useNavigate();
-  axios.defaults.withCredentials = true;
   
 
 
@@ -31,10 +30,22 @@ const CPI = () => {
   const handleAttributeChange = (event) => {
     setSelectedAttribute(event.target.value);
   };
-
+  useEffect(() => {
+    axios.get('http://localhost:3001/verify',{ withCredentials: true })
+      .then(res => {
+        if (!res.data.status) {
+          navigate('/login');
+        }
+      })
+      .catch(err => {
+        console.error("Verification error:", err);
+        navigate('/');
+      });
+  }, [navigate]);
   const handleSubmit = (event) => {
     event.preventDefault();
     setLoading(true); 
+    axios.defaults.withCredentials=true;
     axios.get('http://127.0.0.1:5173/cpi', { params: { attribute: selectedAttribute } })
       .then(response => {
         setCpiData(response.data);
@@ -46,18 +57,7 @@ const CPI = () => {
         setLoading(false);
       });
   };
-  useEffect(() => {
-    axios.get('http://localhost:3001/verify')
-      .then(res => {
-        if (!res.data.status) {
-          navigate('/login');
-        }
-      })
-      .catch(err => {
-        console.error("Verification error:", err);
-        navigate('/');
-      });
-  }, []);
+
   return (
     <div className='all'>
       <Navbar />

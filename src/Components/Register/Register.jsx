@@ -2,6 +2,7 @@ import React from 'react'
 import './Register.css'
 import { useState } from 'react'
 import axios from 'axios'
+import { useNavigate } from "react-router-dom";
 
 function Register(){
   const[name, setName]=useState()
@@ -9,17 +10,19 @@ function Register(){
   const[password, setPassword]=useState()
   const[role, setRole]=useState()
   const[purpose, setPurpose]=useState()
+  const navigate = useNavigate()
 
   const handleSubmit=(e)=>{
     e.preventDefault()
     axios.post('http://localhost:3001/register',{name,email,password,role,purpose})
-    .then(result => {
-      console.log(result)
-      alert('Registered successfully!')
-    })
-    .catch(err=>console.log(err))
-    
-  }
+    .then(response => {
+      if(response.data.status) {
+          navigate('/login')
+      }
+  }).catch(err => {
+      console.log(err)
+  })
+};
   return (
     <div className='bg'>
       <div className='logborder'>

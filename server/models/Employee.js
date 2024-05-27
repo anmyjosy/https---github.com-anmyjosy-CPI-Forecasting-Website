@@ -1,33 +1,11 @@
-const express = require("express");
-const router = express.Router();
-const mongoose = require('mongoose');
-const jwt = require('jsonwebtoken');
-const cookieParser = require('cookie-parser');
+const mongoose=require('mongoose')
+const EmploySchema=new mongoose.Schema({
+  name:{type: String, required: true, unique: true},
+  email:{type: String, required: true, unique: true},
+  password:{type: String, required: true},
+  role:{type: String, required: true},
+  purpose:{type: String, required: true}
+})
 
-const EmploySchema = new mongoose.Schema({
-  name: String,
-  email: String,
-  password: String,
-  role: String,
-  purpose: String
-});
-
-const verifyUser = async (req, res, next) => {
-  try {
-    const token = req.cookies.token;
-    if (!token) {
-      return res.json({ status: false, message: "No token" });
-    }
-    const decoded = jwt.verify(token, process.env.KEY);
-    req.user = decoded; // Store the decoded token in request object
-    next();
-  } catch (err) {
-    return res.json({ status: false, message: "Token verification failed", error: err.message });
-  }
-};
-
-router.get('/verify', verifyUser, (req, res) => {
-  return res.json({ status: true, message: "Authorized" });
-});
-
-module.exports = router;
+const EmployeeModel=mongoose.model("employees",EmploySchema)
+module.exports=EmployeeModel
