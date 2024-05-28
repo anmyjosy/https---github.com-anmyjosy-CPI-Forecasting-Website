@@ -36,10 +36,23 @@ app.post("/login", (req, res) => {
     .catch(err => res.json(err));
 });
 
-app.post('/register', (req, res) => {
-  EmployeeModel.create(req.body)
-    .then(employee => res.json(employee))
-    .catch(err => res.json(err));
+app.post("/register", async (req, res) => {
+  const { name, email, password,role,purpose } = req.body;
+  const user = await EmployeeModel.findOne({ email });
+  if (user) {
+    return res.json({ message: "user already existed" });
+  }
+
+  const newUser = new EmployeeModel({
+    name,
+    email,
+    password,
+    role,
+    purpose
+  });
+
+  await newUser.save();
+  return res.json({ status: true, message: "record registed" });
 });
 
 const verifyUser = (req, res, next) => {

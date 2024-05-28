@@ -16,9 +16,13 @@ function Register(){
     e.preventDefault()
     axios.post('http://localhost:3001/register',{name,email,password,role,purpose})
     .then(response => {
-      if(response.data.status) {
-          navigate('/login')
+      if(response.data.message==="user already existed"){
+        alert('user already existed');
       }
+      if(response.data.status) {
+        navigate('/login')/
+        alert('Registered Successfully')
+    }
   }).catch(err => {
       console.log(err)
   })
