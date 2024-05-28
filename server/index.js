@@ -10,7 +10,7 @@ dotenv.config();
 const app = express();
 app.use(express.json());
 app.use(cors({
-    origin: ["https://https-github-com-anmyjosy-cpi-forecasting-website-jx9p.vercel.app"],
+    origin: [""],
     methods:['POST',"GET"],
     credentials: true
 }));

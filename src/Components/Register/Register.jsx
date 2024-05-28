@@ -14,7 +14,7 @@ function Register(){
 
   const handleSubmit=(e)=>{
     e.preventDefault()
-    axios.post('http://localhost:3001/register',{name,email,password,role,purpose})
+    axios.post('https://https-github-com-anmyjosy-cpi-forecasting-website-cntk.vercel.app/register',{name,email,password,role,purpose})
     .then(response => {
       if(response.data.message==="user already existed"){
         alert('user already existed');
