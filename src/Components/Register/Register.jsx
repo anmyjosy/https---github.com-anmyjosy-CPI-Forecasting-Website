@@ -20,8 +20,10 @@ function Register(){
         alert('user already existed');
       }
       if(response.data.status) {
-        navigate('/login')/
+        navigate('/login')
         alert('Registered Successfully')
+    }if(response.data.message==="All fields are required"){
+      alert('All fields are required');
     }
   }).catch(err => {
       console.log(err)
