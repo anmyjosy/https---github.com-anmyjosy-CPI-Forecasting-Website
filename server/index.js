@@ -10,7 +10,7 @@ dotenv.config();
 const app = express();
 app.use(express.json());
 app.use(cors({
-    origin: ["http://localhost:5173"],
+    origin: ["https://cpiforecast.netlify.app"],
     credentials: true
 }));
 app.use(cookieParser());
@@ -73,6 +73,6 @@ app.get('/verify', verifyUser, (req, res) => {
   return res.json({ status: true, message: "Authorized" });
 });
 
-app.listen(3001, () => {
+app.listen(process.env.PORT, () => {
   console.log("server is running");
 });
