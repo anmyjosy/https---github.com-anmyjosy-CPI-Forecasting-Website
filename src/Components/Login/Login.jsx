@@ -11,7 +11,7 @@ function Login() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post('https://cpiforecast.netlify.app/login', { email, password }, { withCredentials: true })
+    axios.post('http://localhost:3001/login', { email, password }, { withCredentials: true })
       .then(result => {
         console.log(result);
         if (result.data === "no record existed") {
