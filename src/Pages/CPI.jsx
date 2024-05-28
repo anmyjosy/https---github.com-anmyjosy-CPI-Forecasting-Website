@@ -45,7 +45,7 @@ const CPI = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     setLoading(true); 
-    axios.get('http://127.0.0.1:5173/cpi', { params: { attribute: selectedAttribute } })
+    axios.get('https://cpiforecast.netlify.app/cpi', { params: { attribute: selectedAttribute } })
       .then(response => {
         setCpiData(response.data);
         setPlot(JSON.parse(response.data.plot));
