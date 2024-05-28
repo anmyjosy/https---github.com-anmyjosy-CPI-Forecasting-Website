@@ -10,8 +10,7 @@ dotenv.config();
 const app = express();
 app.use(express.json());
 app.use(cors({
-    origin: ["castfore.vercel.app"],
-    methods:['POST',"GET"],
+    origin: ["https://https-github-com-anmyjosy-cpi.onrender.com"],
     credentials: true
 }));
 app.use(cookieParser());
