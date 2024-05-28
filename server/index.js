@@ -38,9 +38,6 @@ app.post("/login", (req, res) => {
 
 app.post("/register", async (req, res) => {
   const { name, email, password,role,purpose } = req.body;
-  if (!name || !email || !password || !role || !purpose) {
-    return res.json({ status: false, message: "All fields are required" });
-  }
   const user = await EmployeeModel.findOne({ email });
   if (user) {
     return res.json({ message: "user already existed" });
