@@ -10,7 +10,7 @@ dotenv.config();
 const app = express();
 app.use(express.json());
 app.use(cors({
-    origin: [""],
+    origin: ["castfore.vercel.app"],
     methods:['POST',"GET"],
     credentials: true
 }));
