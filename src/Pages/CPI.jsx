@@ -31,7 +31,7 @@ const CPI = () => {
     setSelectedAttribute(event.target.value);
   };
   useEffect(() => {
-    axios.get('https://cpiforecast.netlify.app/verify',{ withCredentials: true })
+    axios.get('https://cpiforecast-backend.onrender.com/verify',{ withCredentials: true })
       .then(res => {
         if (!res.data.status) {
           navigate('/login');
@@ -53,7 +53,7 @@ const CPI = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
     setLoading(true); 
-    axios.get('http://127.0.0.1:5173/cpi', { params: { attribute: selectedAttribute } })
+    axios.get('https://cpiforecast.netlify.app/cpi', { params: { attribute: selectedAttribute } })
       .then(response => {
         setCpiData(response.data);
         setPlot(JSON.parse(response.data.plot));
