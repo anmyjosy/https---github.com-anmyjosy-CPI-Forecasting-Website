@@ -23,7 +23,7 @@ app.post("/login", (req, res) => {
     .then(user => {
       if (user) {
         if (user.password === password) {
-          const token = jwt.sign({ email: user.email }, process.env.KEY, { expiresIn: '1s' });
+          const token = jwt.sign({ email: user.email }, process.env.KEY, { expiresIn: '1h' });
           res.cookie('token', token, { httpOnly: true });
           res.json("success");
         } else {
