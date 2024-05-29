@@ -24,7 +24,7 @@ app.post("/login", (req, res) => {
       if (user) {
         if (user.password === password) {
           const token = jwt.sign({ email: user.email }, process.env.KEY, { expiresIn: '1h' });
-          res.cookie('token', token, { httpOnly: true });
+          res.cookie('token', token, { httpOnly: true ,secure: true,sameSite: 'None'});
           res.json("success");
         } else {
           res.json("password is incorrect");
