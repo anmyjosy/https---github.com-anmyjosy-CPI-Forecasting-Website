@@ -11,7 +11,7 @@ function Login() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    axios.post('https://https-github-com-anmyjosy-cpi.onrender.com/login', { email, password }, { withCredentials: true })
+    axios.post('https://cpiforecast-backend.onrender.com/login', { email, password }, { withCredentials: true })
       .then(result => {
         console.log(result);
         if (result.data === "no record existed") {
