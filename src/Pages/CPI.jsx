@@ -31,7 +31,7 @@ const CPI = () => {
     setSelectedAttribute(event.target.value);
   };
   useEffect(() => {
-    axios.get('http://localhost:3001/verify',{ withCredentials: true })
+    axios.get('https://cpiforecast.netlify.app/verify',{ withCredentials: true })
       .then(res => {
         if (!res.data.status) {
           navigate('/login');
