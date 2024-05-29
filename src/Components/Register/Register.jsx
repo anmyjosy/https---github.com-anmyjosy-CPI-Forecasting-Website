@@ -26,7 +26,7 @@ function Register() {
       setEmailError('');
     }
 
-    axios.post('http://localhost:3001/register', { name, email, password, role, purpose })
+    axios.post('https://https-github-com-anmyjosy-cpi.onrender.com/register', { name, email, password, role, purpose })
       .then(response => {
         if (response.data.message === "user already existed") {
           alert('User already existed');
