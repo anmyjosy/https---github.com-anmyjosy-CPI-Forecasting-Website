@@ -41,6 +41,14 @@ const CPI = () => {
         console.error("Verification error:", err);
         navigate('/');
       });
+      const refreshInterval = 900000; 
+      const intervalId = setInterval(() => {
+        window.location.reload();
+        alert('session timeout!')
+      }, refreshInterval);
+  
+      return () => clearInterval(intervalId);
+
   }, [navigate]);
   const handleSubmit = (event) => {
     event.preventDefault();
