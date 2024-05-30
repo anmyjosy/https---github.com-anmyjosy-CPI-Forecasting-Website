@@ -19,7 +19,7 @@ function Login() {
         } else if (result.data === "password is incorrect") {
           alert("Password is incorrect");
         } else if (result.data === "success") {
-          navigate('/cpi');
+          navigate('/');
         }
       })
       .catch(err => console.log(err));
