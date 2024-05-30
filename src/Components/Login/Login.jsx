@@ -20,6 +20,7 @@ function Login() {
           alert("Password is incorrect");
         } else if (result.data === "success") {
           navigate('/');
+          alert('login successful');
         }
       })
       .catch(err => console.log(err));
