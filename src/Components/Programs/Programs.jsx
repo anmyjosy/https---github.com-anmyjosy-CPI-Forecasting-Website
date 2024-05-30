@@ -16,7 +16,7 @@ const Programs = () => {
       <div className="program">
         <img src={program_2} alt="" />
         <h1>CPI Forecast</h1>
-        <button><a href="/">GO &gt;</a></button>
+        <button><a href="cpi">GO &gt;</a></button>
         <p className='para2'>Forecasting the CPI that measures the average change in price over time of a market basket of consumer goods and services</p>
       </div>
       <div className="program">
